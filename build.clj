@@ -12,7 +12,7 @@
         (-> (cb/start)
              (assoc :preflight-src "")
             (cb/index-path (io/file "src") {})
-            (cb/generate '{:main {:entries [app.http]}})
+            (cb/generate '{:main {:entries [app.main]}})
             (cb/minify)
             (cb/write-outputs-to (io/file "resources" "public" "css" "gen")))]
     (doseq [mod (vals (:chunks build-state))

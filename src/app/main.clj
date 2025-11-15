@@ -1,15 +1,16 @@
-(ns app.http
+(ns app.main
   (:require
-   [org.httpkit.client :as http.client]
-   [reitit.ring :as ring]
-   [org.httpkit.server :as http.server]
-   [mount.core :as mount]
-   [ring.middleware.defaults :as rmd]
    [charred.api :as json]
+   [clojure.pprint :as pp]
+   [dev.onionpancakes.chassis.core :as chassis]
+   [mount.core :as mount]
+   [org.httpkit.client :as http.client]
+   [org.httpkit.server :as http.server]
+   [reitit.ring :as ring]
+   [ring.middleware.defaults :as rmd]
    [ring.util.response :as rur]
    [shadow.css :refer [css]]
-   [dev.onionpancakes.chassis.core :as chassis]
-   [clojure.pprint :as pp]))
+   ))
 
 (defn- html-response
   ([body] (html-response body 200))
@@ -445,8 +446,7 @@
                                     ;; We don't need this stuff from ring.middleware.defaults
                                     ;; because Kratos handles it:
                                     (assoc-in [:security :anti-forgery] false)
-                                    (assoc-in [:session] false)
-                                    #_(assoc-in [:static :resources] false)))))
+                                    (assoc-in [:session] false)))))
 
 (defn start! []
   (http.server/run-server app {:port 43000

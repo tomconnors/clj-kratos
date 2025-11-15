@@ -4,10 +4,6 @@
 - Code cleanup
 - Docs
 
-
-# accounts
-email: test@test.com, password: D#cCcv$cKaZP#J6XxO$zR3nv!ir*Zug#gBb0YU
-
 # flows
 
 ## registration
